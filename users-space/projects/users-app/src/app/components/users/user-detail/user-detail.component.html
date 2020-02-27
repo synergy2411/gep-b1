@@ -1,0 +1,31 @@
+<!-- <ng-content select = "header"></ng-content> -->
+
+<!-- <ng-content select="#my-main"></ng-content> -->
+
+<p class="display-4">{{ user.firstName }} {{ user.lastName }}</p>
+<p>Date of Birth : <span [innerHTML]="user.dob"></span></p>
+
+<!-- <p *ngIf="user.isWorking; else myElseTemplate">Income : {{ user.income }}</p> -->
+
+<!-- Desugar ngIf -->
+
+<ng-template [ngIf]="user.isWorking" [ngIfElse]="myElseTemplate">
+  Income : {{ user.income }}
+</ng-template>
+
+<p>
+  Total Votes : {{ user.vote }}
+  <input
+    type="number"
+    [value]="user.vote"
+    (change)="user.vote = $event.target.value"
+  />
+  <input type="number" [(ngModel)]="user.vote" />
+</p>
+
+<ng-template #myElseTemplate>
+  <p>Mr. {{ user.firstName }} is not working now!</p>
+</ng-template>
+
+
+<!--<ng-content select = "footer"></ng-content> -->
