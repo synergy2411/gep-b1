@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { UserComponent } from './components/users/users.component';
 import { UserImageComponent } from './components/users/user-image/user-image.component';
 import { UserDetailComponent } from './components/users/user-detail/user-detail.component';
+import { HighlightDirective } from './directives/highlight.directive';
 
 @NgModule({
   declarations: [
-    AppComponent, UserComponent, UserImageComponent, UserDetailComponent
+    AppComponent, UserComponent, UserImageComponent, UserDetailComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule, FormsModule

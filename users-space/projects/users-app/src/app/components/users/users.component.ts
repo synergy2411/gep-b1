@@ -20,7 +20,7 @@ export class UserComponent implements OnChanges,
 
   constructor(){
 
-    console.log("constructor")
+    // console.log("constructor")
   }
   ngOnChanges(changes : SimpleChanges){
     // console.log("ngOnChanges", changes);
@@ -28,13 +28,25 @@ export class UserComponent implements OnChanges,
 }
   ngOnInit(){
     this.users = USER_DATA;
-    console.log("ngOnInit");
+    // console.log("ngOnInit");
   }
-  ngDoCheck(){console.log("ngDoCheck")}
-  ngAfterContentInit(){console.log("ngAfterContentInit")}
-  ngAfterContentChecked(){console.log("ngAfterContentChecked")}
-  ngAfterViewInit(){console.log("ngAfterViewInit")}
-  ngAfterViewChecked(){console.log("ngAfterViewChecked")}
-  ngOnDestroy(){console.log("ngOnDestroy")}
+  ngDoCheck(){
+    // console.log("ngDoCheck")
+  }
+  ngAfterContentInit(){
+    // console.log("ngAfterContentInit")
+  }
+  ngAfterContentChecked(){
+    // console.log("ngAfterContentChecked")
+  }
+  ngAfterViewInit(){
+    // console.log("ngAfterViewInit")
+  }
+  ngAfterViewChecked(){
+    // console.log("ngAfterViewChecked")
+  }
+  ngOnDestroy(){
+    // console.log("ngOnDestroy")
+  }
 
 }

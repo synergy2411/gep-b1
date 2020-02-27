@@ -2,8 +2,13 @@
 
 <!-- <ng-content select="#my-main"></ng-content> -->
 
-<p class="display-4">{{ user.firstName }} {{ user.lastName }}</p>
-<p>Date of Birth : <span [innerHTML]="user.dob"></span></p>
+<p class="display-4" [appHighlight]="'true'" >{{ user.firstName }} {{ user.lastName }}</p>
+
+<!-- <p [ngClass]="['my-border', 'feature']">Date of Birth : <span [innerHTML]="user.dob"></span></p> -->
+<!-- <p [ngClass]="{'my-border' : true, 'feature': false}">Date of Birth : <span [innerHTML]="user.dob"></span></p> -->
+<p [ngClass]="myCssClasses">Date of Birth : <span [innerHTML]="user.dob"></span>
+  <button class="btn btn-primary btn-sm" (click)="onToggle()">Toggle</button>
+</p>
 
 <!-- <p *ngIf="user.isWorking; else myElseTemplate">Income : {{ user.income }}</p> -->
 
