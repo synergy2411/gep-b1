@@ -24,17 +24,17 @@ export class AppComponent {
       AlertComponent
     );
 
-    const conatinerRef = this.placeholderRef.vcRef;
+    const containerRef = this.placeholderRef.vcRef;
 
-    conatinerRef.clear();
+    containerRef.clear();
 
-    const alertCmp = conatinerRef.createComponent(alertCmpResolver);
+    const alertCmp = containerRef.createComponent(alertCmpResolver);
 
     alertCmp.instance.message = "My Awesome Component";
 
     this.onCloseSub = alertCmp.instance.onAlertClose.subscribe(() => {
       this.onCloseSub.unsubscribe();
-      conatinerRef.clear();
+      containerRef.clear();
     })
 
   }

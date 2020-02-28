@@ -2,11 +2,13 @@
 
 <!-- <ng-content select="#my-main"></ng-content> -->
 
-<p class="display-4" [appHighlight]="'true'" >{{ user.firstName }} {{ user.lastName }}</p>
+<p class="display-4" [appHighlight]="'true'" >
+  {{ user.firstName | uppercase }} {{ user.lastName | titlecase }}</p>
 
 <!-- <p [ngClass]="['my-border', 'feature']">Date of Birth : <span [innerHTML]="user.dob"></span></p> -->
 <!-- <p [ngClass]="{'my-border' : true, 'feature': false}">Date of Birth : <span [innerHTML]="user.dob"></span></p> -->
-<p [ngClass]="myCssClasses">Date of Birth : <span [innerHTML]="user.dob"></span>
+<p [ngClass]="myCssClasses">
+  Date of Birth : <span [innerHTML]="user.dob | date : 'MM/dd/yyyy' "></span>
   <button class="btn btn-primary btn-sm" (click)="onToggle()">Toggle</button>
 </p>
 
@@ -15,7 +17,7 @@
 <!-- Desugar ngIf -->
 
 <ng-template [ngIf]="user.isWorking" [ngIfElse]="myElseTemplate">
-  Income : {{ user.income }}
+  Income : {{ user.income  | currency : 'EUR'}}
 </ng-template>
 
 <p>

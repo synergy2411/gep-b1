@@ -10,18 +10,25 @@ import { UserDetailComponent } from './components/users/user-detail/user-detail.
 import { HighlightDirective } from './directives/highlight.directive';
 import { PlaceholderDirective } from './directives/placeholder.directive';
 import { AlertComponent } from './components/alert/alert.component';
+import { PipeDemoComponent } from './components/pipe-demo/pipe-demo.component';
+import { NationalCodePipe } from './pipes/national-code.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
+import { DataService } from './services/data.service';
 
 @NgModule({
   declarations: [
     AppComponent, UserComponent, UserImageComponent, UserDetailComponent,
     HighlightDirective,
     PlaceholderDirective,
-    AlertComponent
+    AlertComponent,
+    PipeDemoComponent,
+    NationalCodePipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule, FormsModule, LibUtilModule
   ],
-  providers: [],
+  providers: [DataService],
   entryComponents :   [AlertComponent],
   bootstrap: [AppComponent]
 })

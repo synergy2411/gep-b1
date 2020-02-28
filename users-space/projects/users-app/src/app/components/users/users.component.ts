@@ -12,7 +12,8 @@ import {
   SimpleChanges
 } from "@angular/core";
 import { IUser } from "../../model/user";
-import { USER_DATA } from "../../model/mocks";
+import { DataService } from '../../services/data.service';
+// import { USER_DATA } from "../../model/mocks";
 
 @Component({
   selector: "app-users",
@@ -37,7 +38,7 @@ export class UserComponent
     alert(`Hello from ${user.firstName}, working with ${user.company}!`);
   }
 
-  constructor() {
+  constructor(private dataService : DataService) {
     // console.log("constructor")
   }
   ngOnChanges(changes: SimpleChanges) {
@@ -45,7 +46,8 @@ export class UserComponent
     // this.title = "Custom Changes " +( Math.round(Math.random() * 10));
   }
   ngOnInit() {
-    this.users = USER_DATA;
+    this.users = this.dataService.getUserData();
+    // this.users = USER_DATA;
     // console.log("[PARENT] ngOnInit");
   }
   ngDoCheck() {
