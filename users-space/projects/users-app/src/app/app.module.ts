@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LibUtilModule } from 'gep-util';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { UserComponent } from './components/users/users.component';
@@ -14,6 +15,7 @@ import { PipeDemoComponent } from './components/pipe-demo/pipe-demo.component';
 import { NationalCodePipe } from './pipes/national-code.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { DataService } from './services/data.service';
+import { ObservableDemoComponent } from './components/observable-demo/observable-demo.component';
 
 @NgModule({
   declarations: [
@@ -23,10 +25,11 @@ import { DataService } from './services/data.service';
     AlertComponent,
     PipeDemoComponent,
     NationalCodePipe,
-    FilterPipe
+    FilterPipe,
+    ObservableDemoComponent
   ],
   imports: [
-    BrowserModule, FormsModule, LibUtilModule
+    BrowserModule, FormsModule, LibUtilModule, HttpClientModule
   ],
   providers: [DataService],
   entryComponents :   [AlertComponent],

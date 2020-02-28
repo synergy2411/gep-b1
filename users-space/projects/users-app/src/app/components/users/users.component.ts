@@ -12,13 +12,14 @@ import {
   SimpleChanges
 } from "@angular/core";
 import { IUser } from "../../model/user";
-import { DataService } from '../../services/data.service';
+import { DataService } from "../../services/data.service";
 // import { USER_DATA } from "../../model/mocks";
 
 @Component({
   selector: "app-users",
   templateUrl: `./users.component.html`,
-  styleUrls: ["./users.component.css"]
+  styleUrls: ["./users.component.css"],
+  // providers : [DataService]
 })
 export class UserComponent
   implements
@@ -38,7 +39,11 @@ export class UserComponent
     alert(`Hello from ${user.firstName}, working with ${user.company}!`);
   }
 
-  constructor(private dataService : DataService) {
+  increase(){
+    this.dataService.counter++;
+  }
+
+  constructor(public dataService: DataService) {
     // console.log("constructor")
   }
   ngOnChanges(changes: SimpleChanges) {
@@ -46,7 +51,16 @@ export class UserComponent
     // this.title = "Custom Changes " +( Math.round(Math.random() * 10));
   }
   ngOnInit() {
-    this.users = this.dataService.getUserData();
+    // this.users = this.dataService.getUserData();
+    this.dataService.getApiData().subscribe(
+      response => {
+      // console.log(response);
+      this.users = <IUser[]>response['userdata'];
+    },
+    err => console.log(err),
+    () => console.log("COmpleted")
+    );
+
     // this.users = USER_DATA;
     // console.log("[PARENT] ngOnInit");
   }

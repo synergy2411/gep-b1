@@ -2,6 +2,7 @@ import { Component, ComponentFactoryResolver, ViewChild } from "@angular/core";
 import { Subscription } from 'rxjs';
 import { AlertComponent } from "./components/alert/alert.component";
 import { PlaceholderDirective } from "./directives/placeholder.directive";
+import { DataService } from './services/data.service';
 
 @Component({
   selector: "app-root",
@@ -15,9 +16,14 @@ export class AppComponent {
   @ViewChild(PlaceholderDirective, { static: false })
              placeholderRef: PlaceholderDirective;
 
-  constructor(private cmpFactory: ComponentFactoryResolver) {}
+  constructor(private cmpFactory: ComponentFactoryResolver,
+              public dataService : DataService) {}
 
   onCloseSub : Subscription;
+
+  increase(){
+    this.dataService.counter++;
+  }
 
   onShowAlert() {
     const alertCmpResolver = this.cmpFactory.resolveComponentFactory(

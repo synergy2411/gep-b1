@@ -1,0 +1,8 @@
+<!-- <h3>Data : {{ dataObs$ | async}} </h3> -->
+
+<button class="btn btn-primary" (click) = "onSubscribe()">Subscribe</button>
+<button class="btn btn-primary" (click) = "onUnsubscribe()">Unsubscribe</button>
+
+<ul>
+  <li *ngFor="let pkg of packages"> {{ pkg }} </li>
+</ul>

@@ -2,6 +2,11 @@
 <p class="display-3"> Title : {{ title }} </p>
 <input type="text" [(ngModel)]="title"> -->
 
+
+<h4>Counter in Users : {{ dataService.counter }}</h4>
+<button (click) = "increase()"> + </button>
+
+
 <ul class="list-unstyled">
   <li
     class="card"
