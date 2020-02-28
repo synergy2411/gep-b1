@@ -24,6 +24,12 @@
       ],
       "user-test/*": [
         "dist/user-test/*"
+      ],
+      "lib-util": [
+        "dist/lib-util"
+      ],
+      "lib-util/*": [
+        "dist/lib-util/*"
       ]
     }
   },

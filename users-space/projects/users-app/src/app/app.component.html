@@ -1,5 +1,18 @@
 <div class="container">
-  App Works!!!!
+
+  <!-- <button class="btn btn-primary" (click)="showAlert = true">Show Alert</button> -->
+  <button class="btn btn-primary" (click)="onShowAlert()">Show Alert</button>
+
+  <!-- <app-alert *ngIf="showAlert" (onAlertClose) = "showAlert = false"></app-alert> -->
+
+  <ng-template appPlaceholder ></ng-template>
+
+
+  <ng-template #customHeader>
+    Custom Header
+  </ng-template>
+
+  <!-- <lib-customized [headerTempl]="customHeader"></lib-customized> -->
 
   <br>
 

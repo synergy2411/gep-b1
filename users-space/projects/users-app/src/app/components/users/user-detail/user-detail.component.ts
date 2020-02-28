@@ -9,7 +9,7 @@ export class UserDetailComponent {
 
   @Input("user") user : any;
 
-  myCssClasses = {'my-border' : true, 'feature': false};
+  myCssClasses = {'my-border' : false, 'feature': false};
 
   onToggle(){
     this.myCssClasses['my-border'] = !this.myCssClasses['my-border']

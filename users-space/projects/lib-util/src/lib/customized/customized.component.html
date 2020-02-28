@@ -1,0 +1,7 @@
+<p class="display-4">Customized Component Works!</p>
+
+<ng-container
+  *ngTemplateOutlet="headerTempl ? headerTempl : defaultHeader"
+></ng-container>
+
+<ng-template #defaultHeader>Default Header</ng-template>

@@ -1,52 +1,69 @@
-import { Component, OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy, Input, SimpleChanges } from "@angular/core";
-import { IUser } from '../../model/user';
-import { USER_DATA } from '../../model/mocks';
+import {
+  Component,
+  OnChanges,
+  OnInit,
+  DoCheck,
+  AfterContentInit,
+  AfterContentChecked,
+  AfterViewInit,
+  AfterViewChecked,
+  OnDestroy,
+  Input,
+  SimpleChanges
+} from "@angular/core";
+import { IUser } from "../../model/user";
+import { USER_DATA } from "../../model/mocks";
 
 @Component({
-  selector : "app-users",
-  templateUrl : `./users.component.html`
+  selector: "app-users",
+  templateUrl: `./users.component.html`,
+  styleUrls: ["./users.component.css"]
 })
-export class UserComponent implements OnChanges,
- OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit,
- AfterViewChecked, OnDestroy{
+export class UserComponent
+  implements
+    OnChanges,
+    OnInit,
+    DoCheck,
+    AfterContentInit,
+    AfterContentChecked,
+    AfterViewInit,
+    AfterViewChecked,
+    OnDestroy {
+  @Input("title") title: string;
 
-  @Input("title") title : string;
+  users: IUser[];
 
-  users : IUser[];
-
-  onMoreInfo(user : IUser){
+  onMoreInfo(user: IUser) {
     alert(`Hello from ${user.firstName}, working with ${user.company}!`);
   }
 
-  constructor(){
-
+  constructor() {
     // console.log("constructor")
   }
-  ngOnChanges(changes : SimpleChanges){
-    // console.log("ngOnChanges", changes);
+  ngOnChanges(changes: SimpleChanges) {
+    // console.log("[PARENT] ngOnChanges", changes);
     // this.title = "Custom Changes " +( Math.round(Math.random() * 10));
-}
-  ngOnInit(){
+  }
+  ngOnInit() {
     this.users = USER_DATA;
-    // console.log("ngOnInit");
+    // console.log("[PARENT] ngOnInit");
   }
-  ngDoCheck(){
-    // console.log("ngDoCheck")
+  ngDoCheck() {
+    // console.log("[PARENT] ngDoCheck");
   }
-  ngAfterContentInit(){
-    // console.log("ngAfterContentInit")
+  ngAfterContentInit() {
+    // console.log("[PARENT] ngAfterContentInit");
   }
-  ngAfterContentChecked(){
-    // console.log("ngAfterContentChecked")
+  ngAfterContentChecked() {
+    // console.log("[PARENT] ngAfterContentChecked");
   }
-  ngAfterViewInit(){
-    // console.log("ngAfterViewInit")
+  ngAfterViewInit() {
+    // console.log("[PARENT] ngAfterViewInit");
   }
-  ngAfterViewChecked(){
-    // console.log("ngAfterViewChecked")
+  ngAfterViewChecked() {
+    // console.log("[PARENT] ngAfterViewChecked");
   }
-  ngOnDestroy(){
-    // console.log("ngOnDestroy")
+  ngOnDestroy() {
+    // console.log("[PARENT] ngOnDestroy");
   }
-
 }
