@@ -1,7 +1,12 @@
 <div class="container">
 
+  <app-header></app-header>
+  <br>
+  <br>
 
-  <app-observable-demo></app-observable-demo>
+  <router-outlet></router-outlet>
+
+  <!-- <app-observable-demo></app-observable-demo> -->
 
 
   <!-- <h3>Counter in App : {{ dataService.counter }}</h3>
@@ -32,6 +37,6 @@
   <!-- <p>Title on Parent : <input type="text" [(ngModel)]="title"></p>
   <br> -->
 
-  <app-users [title]= "title"></app-users>
+  <!-- <app-users [title]= "title"></app-users> -->
 
 </div>

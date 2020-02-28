@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LibUtilModule } from 'gep-util';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RouterModule } from "@angular/router";
 
 import { AppComponent } from './app.component';
 import { UserComponent } from './components/users/users.component';
@@ -16,6 +17,9 @@ import { NationalCodePipe } from './pipes/national-code.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { DataService } from './services/data.service';
 import { ObservableDemoComponent } from './components/observable-demo/observable-demo.component';
+import { LoggerInterceptor } from './interceptors/logger.interceptor';
+import { APP_ROUTES } from './app.routes';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -26,12 +30,18 @@ import { ObservableDemoComponent } from './components/observable-demo/observable
     PipeDemoComponent,
     NationalCodePipe,
     FilterPipe,
-    ObservableDemoComponent
+    ObservableDemoComponent,
+    HeaderComponent
   ],
   imports: [
-    BrowserModule, FormsModule, LibUtilModule, HttpClientModule
+    BrowserModule, FormsModule, LibUtilModule, HttpClientModule,
+    RouterModule.forRoot(APP_ROUTES)
   ],
-  providers: [DataService],
+  providers: [DataService, {
+    provide : HTTP_INTERCEPTORS,
+    useClass : LoggerInterceptor,
+    multi : true
+  }],
   entryComponents :   [AlertComponent],
   bootstrap: [AppComponent]
 })
