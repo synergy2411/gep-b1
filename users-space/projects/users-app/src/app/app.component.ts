@@ -1,9 +1,11 @@
-import { Component, ComponentFactoryResolver, ViewChild } from "@angular/core";
+import { Component, ComponentFactoryResolver, ViewChild, ChangeDetectorRef, NgZone } from "@angular/core";
 import { Subscription } from 'rxjs';
 import { AlertComponent } from "./components/alert/alert.component";
 import { PlaceholderDirective } from "./directives/placeholder.directive";
 import { DataService } from './services/data.service';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: "app-root",
@@ -13,13 +15,38 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = "users-app";
   showAlert: boolean = false;
+  counter : number;
 
   @ViewChild(PlaceholderDirective, { static: false })
              placeholderRef: PlaceholderDirective;
 
   constructor(private cmpFactory: ComponentFactoryResolver,
               public dataService : DataService,
-              private router : Router) {}
+              private router : Router,
+              private store : Store<{counter : number}>,
+              private sanitize : DomSanitizer,
+              private cdRef : ChangeDetectorRef,
+              private zone : NgZone) {
+                // this.sanitize.
+                this.zone.runOutsideAngular(() => {
+                  // 
+                })
+              }
+
+    ngOnInit(){
+      this.store.subscribe(response => {
+        console.log(response);
+        this.counter = response['rootReducer'].counter;
+      })
+    }
+
+    onIncrease(){
+      this.store.dispatch({type : "INCREMENT"});
+    }
+    onDecrease(){
+      this.store.dispatch({type : "DECREMENT"});
+    }
+
 
   onCloseSub : Subscription;
 

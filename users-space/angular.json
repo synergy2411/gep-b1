@@ -21,9 +21,11 @@
             "aot": false,
             "assets": [
               "projects/users-app/src/favicon.ico",
-              "projects/users-app/src/assets"
+              "projects/users-app/src/assets",
+              "projects/users-app/src/manifest.webmanifest"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "projects/users-app/src/styles.css"
             ],
@@ -57,7 +59,9 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ]
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "projects/users-app/ngsw-config.json"
             }
           }
         },
@@ -87,9 +91,11 @@
             "karmaConfig": "projects/users-app/karma.conf.js",
             "assets": [
               "projects/users-app/src/favicon.ico",
-              "projects/users-app/src/assets"
+              "projects/users-app/src/assets",
+              "projects/users-app/src/manifest.webmanifest"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "projects/users-app/src/styles.css"
             ],
             "scripts": []
