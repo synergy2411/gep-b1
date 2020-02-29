@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { AlertComponent } from "./components/alert/alert.component";
 import { PlaceholderDirective } from "./directives/placeholder.directive";
 import { DataService } from './services/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-root",
@@ -17,9 +18,15 @@ export class AppComponent {
              placeholderRef: PlaceholderDirective;
 
   constructor(private cmpFactory: ComponentFactoryResolver,
-              public dataService : DataService) {}
+              public dataService : DataService,
+              private router : Router) {}
 
   onCloseSub : Subscription;
+
+  onNavigate(){
+    this.router.navigate(['/pipe']);
+  }
+
 
   increase(){
     this.dataService.counter++;

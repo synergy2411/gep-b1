@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LibUtilModule } from 'gep-util';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { RouterModule } from "@angular/router";
+import { RouterModule, PreloadAllModules } from "@angular/router";
 
 import { AppComponent } from './app.component';
 import { UserComponent } from './components/users/users.component';
@@ -20,6 +20,11 @@ import { ObservableDemoComponent } from './components/observable-demo/observable
 import { LoggerInterceptor } from './interceptors/logger.interceptor';
 import { APP_ROUTES } from './app.routes';
 import { HeaderComponent } from './components/header/header.component';
+import { ProductComponent } from './components/product/product.component';
+import { OverviewComponent } from './components/product/overview/overview.component';
+import { SpecifictionComponent } from './components/product/specifiction/specifiction.component';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { EmployeeModule } from './employee/employee.module';
 
 @NgModule({
   declarations: [
@@ -31,11 +36,14 @@ import { HeaderComponent } from './components/header/header.component';
     NationalCodePipe,
     FilterPipe,
     ObservableDemoComponent,
-    HeaderComponent
+    HeaderComponent,
+    ProductComponent,
+    OverviewComponent,
+    SpecifictionComponent
   ],
   imports: [
     BrowserModule, FormsModule, LibUtilModule, HttpClientModule,
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES, {preloadingStrategy : PreloadAllModules}), EmployeeModule
   ],
   providers: [DataService, {
     provide : HTTP_INTERCEPTORS,

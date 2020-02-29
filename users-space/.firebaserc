@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "new-cnx": {
+      "hosting": {
+        "users-app": [
+          "new-cnx"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "cnx-demo"
+  }
+}

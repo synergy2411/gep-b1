@@ -26,8 +26,8 @@ export class PipeDemoComponent {
   onAddNew(){
     this.todos.push({label : "New Todo Item" , status : "pending" });
   }
-  
-  contact_number = 987654321;
+
+  contact_number : string = "987654321";
 
   promise = new Promise((resolve, reject) =>{
     setTimeout(() => {
